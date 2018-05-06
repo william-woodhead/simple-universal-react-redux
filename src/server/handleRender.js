@@ -3,9 +3,9 @@ import { renderToString } from 'react-dom/server';
 import { matchPath } from 'react-router-dom';
 import { StaticRouter } from 'react-router';
 import { Provider } from 'react-redux';
-import Router, { routes } from '../isomorphic/routes';
+import Router, { routes } from '../universal/routes';
 import renderFullPage from './renderFullPage';
-import createReduxStore from '../isomorphic/createReduxStore';
+import createReduxStore from '../universal/createReduxStore';
 import App from '../containers/App';
 
 export default function handleRender(req, res) {

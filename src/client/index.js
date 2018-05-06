@@ -2,8 +2,8 @@ import React from 'react';
 import { hydrate } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import Router from '../isomorphic/routes';
-import createReduxStore from '../isomorphic/createReduxStore';
+import Router from '../universal/routes';
+import createReduxStore from '../universal/createReduxStore';
 
 const preloadedState = window.__PRELOADED_STATE__; // eslint-disable-line no-underscore-dangle
 delete window.__PRELOADED_STATE__; // eslint-disable-line no-underscore-dangle
