@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev-server": "cross-env BABEL_ENV=server NODE_ENV=development nodemon ./src/server/index.js --exec babel-node",
+    "dev-server": "cross-env BABEL_ENV=server NODE_ENV=development nodemon ./src/server/index.js --exec babel-node --ignore dist/",
     "dev-client": "cross-env NODE_ENV=development webpack --config ./webpack.config.dev.js",
     "dev": "cross-env NODE_ENV=development npm run dev-server & npm run dev-client",
     "prod-server": "cross-env BABEL_ENV=server NODE_ENV=production babel src --out-dir ./dist",
@@ -20,7 +20,9 @@
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

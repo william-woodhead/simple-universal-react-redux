@@ -2,15 +2,12 @@ import React from 'react';
 import { Switch, Route } from 'react-router';
 import App from '../containers/App';
 import Home from '../containers/Home';
-
-function getSomeData(props) {
-  return Promise.resolve({ app: { some: 'data' } });
-}
+import { getData } from '../redux/actions/home';
 
 export const routes = [{
   path: '/',
   component: Home,
-  loadData: (match) => getSomeData(match)
+  loadData: () => getData()
 }];
 
 export default function Router() {

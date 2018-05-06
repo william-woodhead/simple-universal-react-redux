@@ -2,25 +2,23 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { matchPath } from 'react-router-dom';
 import { StaticRouter } from 'react-router';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import Router, { routes } from '../isomorphic/routes';
 import renderFullPage from './renderFullPage';
-import reduxState from '../redux/reducers';
+import createReduxStore from '../isomorphic/createReduxStore';
 import App from '../containers/App';
 
 export default function handleRender(req, res) {
   const promises = [];
+  const store = createReduxStore();
 
   routes.some((route) => {
     const match = matchPath(req.path, route);
-    if (match) promises.push(route.loadData(match));
+    if (match) promises.push(store.dispatch(route.loadData()));
     return match;
   });
 
-  Promise.all(promises).then(([data]) => {
-    const store = createStore(reduxState, data);
-
+  Promise.all(promises).then(() => {
     const html = renderToString(
       <Provider store={store}>
         <StaticRouter location={req.url} context={{}}>
