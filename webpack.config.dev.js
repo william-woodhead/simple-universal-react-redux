@@ -1,7 +1,6 @@
-var webpack = require('webpack');
-
 module.exports = {
   mode: 'development',
+  watch: true,
   devtool: 'inline-source-map',
   entry: {
     main: ['./src/client/index.js']
@@ -16,6 +15,13 @@ module.exports = {
       test: /\.js$/,
       exclude: /node_modules/,
       use: 'babel-loader'
+    }, {
+      test: /\.scss$/,
+      use: [
+        'style-loader',
+        'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+        'sass-loader'
+      ]
     }]
   }
 };

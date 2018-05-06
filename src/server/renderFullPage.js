@@ -4,6 +4,7 @@ export default function renderFullPage(html, preloadedState) {
     <html>
       <head>
         <title>Redux Universal Example</title>
+        ${process.env.NODE_ENV === 'production' ? '<link rel="stylesheet" type="text/css" href="/dist/main.style.css" />' : ''}
       </head>
       <body>
         <div id="root">${html}</div>

@@ -1,3 +1,16 @@
 {
-  "presets": ["env", "react"]
+  "presets": ["env", "react"],
+  "env": {
+    "server": {
+      "plugins": [
+        [
+          "css-modules-transform", {
+            "preprocessCss": "./loaders/sass-loader.js",
+            "generateScopedName": "[name]__[local]___[hash:base64:5]",
+            "extensions": [".scss"]
+          }
+        ]
+      ]
+    }
+  }
 }
