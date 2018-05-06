@@ -20,6 +20,7 @@ It borrows heavily from the fantastic documentation of Redux and React-Router.
 - Babel for ES6 Javascript
 - Webpack 4
 - Sass
+- Nodemon
 
 ## Commands
 Clone the repository
