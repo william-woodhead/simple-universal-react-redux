@@ -3,11 +3,15 @@ import React, { Component } from 'react';
 import styles from './Home.scss';
 
 export default class Home extends Component {
+  componentWillMount() {
+    if (!this.props.data) this.props.getHomeData();
+  }
+
   render() {
     return (
       <div className={styles.Home}>
         This is the home page
-        {JSON.stringify(this.props.home)}
+        {JSON.stringify(this.props.data)}
       </div>
     );
   }

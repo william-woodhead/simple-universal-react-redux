@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import home from './home';
+import about from './about';
 
 const reduxState = combineReducers({
-  home
+  home,
+  about
 });
 
 export default reduxState;

@@ -1,13 +1,13 @@
-import TYPE from '../types/home';
+import TYPE from '../types/about';
 
-export function getHomeData() {
+export function getAboutData() {
   return (dispatch) => {
     dispatch({ type: TYPE.REQ_DATA });
 
     return new Promise((resolve, reject) => {
       dispatch({
         type: TYPE.RES_DATA,
-        data: { some: 'async home data' }
+        data: { some: 'async about data' }
       });
       resolve();
     });

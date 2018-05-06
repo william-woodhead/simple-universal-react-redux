@@ -1,21 +1,21 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Home from '../components/home';
-import { getHomeData } from '../redux/actions/home';
+import About from '../components/about';
+import { getAboutData } from '../redux/actions/about';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    data: state.home
+    data: state.about
   };
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return bindActionCreators({
-    getHomeData
+    getAboutData
   }, dispatch);
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home);
+)(About);

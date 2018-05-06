@@ -2,12 +2,20 @@ import React from 'react';
 import { Switch, Route } from 'react-router';
 import App from '../containers/App';
 import Home from '../containers/Home';
-import { getData } from '../redux/actions/home';
+import About from '../containers/About';
+import { getHomeData } from '../redux/actions/home';
+import { getAboutData } from '../redux/actions/about';
 
 export const routes = [{
   path: '/',
+  exact: true,
   component: Home,
-  loadData: () => getData()
+  loadData: () => getHomeData()
+}, {
+  path: '/about',
+  exact: true,
+  component: About,
+  loadData: () => getAboutData()
 }];
 
 export default function Router() {
@@ -15,7 +23,7 @@ export default function Router() {
     <App>
       <Switch>
         {routes.map(route => (
-          <Route key={route.path} path={route.path} component={route.component} />
+          <Route key={route.path} {...route} />
         ))}
       </Switch>
     </App>

@@ -1,7 +1,7 @@
 import mirror from 'key-mirror';
 import reduce from 'lodash/reduce';
 
-const prefix = '@@homeTypes';
+const prefix = '@@aboutTypes';
 
 const constants = mirror({
   REQ_DATA: null,

@@ -1,4 +1,4 @@
-import TYPE from '../types/home';
+import TYPE from '../types/about';
 
 export default function (state = null, action) {
   switch (action.type) {

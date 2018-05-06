@@ -1,0 +1,11 @@
+.TopBar {
+  display: flex;
+}
+
+.Link {
+  display: inline-block;
+
+  & + & {
+    margin-left: 8px;
+  }
+}
