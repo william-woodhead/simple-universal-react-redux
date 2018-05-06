@@ -33,3 +33,7 @@ To build for production:
 
 To run in production:
 `npm run start`
+
+MIT License
+
+Copyright (c) 2018 William Woodhead
