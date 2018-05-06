@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import styles from './NotFound.scss';
 
@@ -11,5 +10,3 @@ export default class NotFound extends Component {
     );
   }
 }
-
-NotFound.propTypes = {};

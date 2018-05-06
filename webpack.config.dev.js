@@ -9,7 +9,6 @@ module.exports = {
     publicPath: '/dist/',
     filename: './[name].bundle.js'
   },
-  // no output as it is stored in memory
   module: {
     rules: [{
       test: /\.js$/,

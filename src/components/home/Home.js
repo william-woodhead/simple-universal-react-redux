@@ -17,4 +17,11 @@ export default class Home extends Component {
   }
 }
 
-Home.propTypes = {};
+Home.propTypes = {
+  data: PropTypes.object,
+  getHomeData: PropTypes.func.isRequired
+};
+
+Home.defaultProps = {
+  data: null
+};

@@ -10,6 +10,6 @@ const constants = mirror({
 });
 
 export default reduce(constants, (result, value, key) => {
-  result[key] = `${prefix}/${value}`;
+  result[key] = `${prefix}/${value}`; // eslint-disable-line no-param-reassign
   return result;
 }, {});

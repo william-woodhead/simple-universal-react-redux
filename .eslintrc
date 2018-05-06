@@ -1,9 +1,6 @@
 {
   "parser": "babel-eslint",
   "extends": "airbnb",
-  "globals": {
-    "gtag": true
-  },
   "env": {
     "browser": true,
     "mocha": true,
@@ -31,12 +28,5 @@
     "import",
     "promise",
     "react"
-  ],
-  "settings": {
-    "import/resolver": {
-      "webpack": {
-        "config": "webpack.config.eslint.js"
-      }
-    }
-  }
+  ]
 }

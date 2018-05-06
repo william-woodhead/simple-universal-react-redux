@@ -5,8 +5,8 @@ import { Provider } from 'react-redux';
 import Router from '../isomorphic/routes';
 import createReduxStore from '../isomorphic/createReduxStore';
 
-const preloadedState = window.__PRELOADED_STATE__;
-delete window.__PRELOADED_STATE__;
+const preloadedState = window.__PRELOADED_STATE__; // eslint-disable-line no-underscore-dangle
+delete window.__PRELOADED_STATE__; // eslint-disable-line no-underscore-dangle
 
 const store = createReduxStore({ preloadedState });
 

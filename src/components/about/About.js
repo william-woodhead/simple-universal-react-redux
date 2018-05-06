@@ -17,4 +17,11 @@ export default class About extends Component {
   }
 }
 
-About.propTypes = {};
+About.propTypes = {
+  data: PropTypes.object,
+  getAboutData: PropTypes.func.isRequired
+};
+
+About.defaultProps = {
+  data: null
+};
