@@ -11,15 +11,15 @@ It borrows heavily from the fantastic documentation of Redux and React-Router.
 ### These are the technologies it uses:
 
 #### For the app
-React
-Redux
-React-router
-Express
+- React
+- Redux
+- React-router
+- Express
 
 #### Build tools
-Babel for ES6 Javascript
-Webpack 4
-Sass
+- Babel for ES6 Javascript
+- Webpack 4
+- Sass
 
 ## Commands
 To clone:
