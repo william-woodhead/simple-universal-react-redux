@@ -12,9 +12,12 @@ export default function handleRender(req, res) {
   const promises = [];
   const store = createReduxStore({ server: true });
 
+  let matchedRoute;
+
   routes.some((route) => {
     const match = matchPath(req.path, route);
-    if (match) promises.push(store.dispatch(route.loadData()));
+    if (match) matchedRoute = match;
+    if (match && route.loadData) promises.push(store.dispatch(route.loadData()));
     return match;
   });
 
@@ -29,6 +32,6 @@ export default function handleRender(req, res) {
 
     const preloadedState = store.getState();
 
-    res.send(renderFullPage(html, preloadedState));
+    res.status(matchedRoute.isExact ? 200 : 404).send(renderFullPage(html, preloadedState));
   });
 }
