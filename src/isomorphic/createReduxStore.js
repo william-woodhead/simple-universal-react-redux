@@ -5,10 +5,10 @@ import reduxState from '../redux/reducers';
 
 const loggerMiddleware = createLogger();
 
-export default function createReduxStore(preloadedState) {
+export default function createReduxStore({ preloadedState, server } = {}) {
   let enhancer;
 
-  if (process.env.NODE_ENV !== 'production') {
+  if (process.env.NODE_ENV !== 'production' && !server) {
     enhancer = applyMiddleware(thunkMiddleware, loggerMiddleware);
   } else {
     enhancer = applyMiddleware(thunkMiddleware);

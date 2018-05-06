@@ -6,8 +6,8 @@ export default class Home extends Component {
   render() {
     return (
       <div className={styles.Home}>
-        Hello Home man
-        {JSON.stringify(this.props.app)}
+        This is the home page
+        {JSON.stringify(this.props.home)}
       </div>
     );
   }

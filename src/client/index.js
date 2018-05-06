@@ -8,7 +8,7 @@ import createReduxStore from '../isomorphic/createReduxStore';
 const preloadedState = window.__PRELOADED_STATE__;
 delete window.__PRELOADED_STATE__;
 
-const store = createReduxStore(preloadedState);
+const store = createReduxStore({ preloadedState });
 
 hydrate(
   <Provider store={store}>

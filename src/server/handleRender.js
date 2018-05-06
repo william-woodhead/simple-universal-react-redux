@@ -10,7 +10,7 @@ import App from '../containers/App';
 
 export default function handleRender(req, res) {
   const promises = [];
-  const store = createReduxStore();
+  const store = createReduxStore({ server: true });
 
   routes.some((route) => {
     const match = matchPath(req.path, route);

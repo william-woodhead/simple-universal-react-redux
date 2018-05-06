@@ -1,6 +1,8 @@
+import TYPE from '../types/home';
+
 export default function (state = {}, action) {
   switch (action.type) {
-    case 'RES_DATA': return resData(state, action);
+    case TYPE.RES_DATA: return resData(state, action);
     default: return state;
   }
 }
