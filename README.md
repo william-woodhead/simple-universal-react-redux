@@ -4,6 +4,8 @@
 This repo is an attempt to make the simplest server-side rendered (universal) React app.
 It was born out of frustrations with complex boilerplates where you can't understand what is going on behind the scenes.
 
+It is intended to be hacked around with.
+
 It tries to be as unopinionated and simple as possible.
 
 It borrows heavily from the fantastic documentation of Redux and React-Router.
@@ -23,7 +25,7 @@ It borrows heavily from the fantastic documentation of Redux and React-Router.
 - Nodemon
 
 ## Commands
-Clone the repository
+**Clone the repository**
 
 To develop
 
@@ -36,6 +38,16 @@ To build for production
 To run in production
 
 `npm run start`
+
+To see in browser - **localhost:3000**
+
+#### Windows
+
+It is tested on Windows. You might have to install nodemon globally though.
+
+`npm i -g nodemon`
+
+## License
 
 MIT License
 
