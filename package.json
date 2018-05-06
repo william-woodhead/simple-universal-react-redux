@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf build",
-    "build": "cross-env BABEL_ENV=server babel src --out-dir ./build",
-    "start": "node ./build/server/index.js"
+    "build": "cross-env BABEL_ENV=server babel src --out-dir ./build && npm run pack",
+    "start": "node ./build/server/index.js",
+    "pack": "webpack --config ./webpack.config.js"
   },
   "author": "",
   "license": "ISC",
@@ -43,6 +44,8 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.1",
     "react-router": "^4.2.0",
-    "run-sequence": "^2.2.1"
+    "run-sequence": "^2.2.1",
+    "webpack": "^4.7.0",
+    "webpack-cli": "^2.1.2"
   }
 }

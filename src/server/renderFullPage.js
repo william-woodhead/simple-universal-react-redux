@@ -12,7 +12,7 @@ export default function renderFullPage(html, preloadedState) {
           // http://redux.js.org/recipes/ServerRendering.html#security-considerations
           window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
         </script>
-        <script src="/static/bundle.js"></script>
+        <script src="/dist/main.bundle.js"></script>
       </body>
     </html>
     `

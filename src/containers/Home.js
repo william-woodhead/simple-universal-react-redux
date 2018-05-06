@@ -1,14 +1,17 @@
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Home from '../components/home';
 
-export default class App extends Component {
-  render() {
-    return (
-      <div>
-        Hello Home
-      </div>
-    );
-  }
+const mapStateToProps = (state, ownProps) => {
+  return {
+    app: state.app
+  };
 }
 
-App.propTypes = {};
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {};
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);
