@@ -22,16 +22,18 @@ It borrows heavily from the fantastic documentation of Redux and React-Router.
 - Sass
 
 ## Commands
-To clone:
-`git clone`
+Clone the repository
 
-To develop:
+To develop
+
 `npm run dev`
 
-To build for production:
+To build for production
+
 `npm run build`
 
-To run in production:
+To run in production
+
 `npm run start`
 
 MIT License
