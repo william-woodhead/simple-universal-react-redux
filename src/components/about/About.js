@@ -9,10 +9,13 @@ export default class About extends Component {
   }
 
   render() {
+    const { data } = this.props;
+    if (!data) return 'Loading async data...';
+
     return (
       <div className={styles.About}>
-        <h1>This is the about page</h1>
-        <p>Async Text:  {this.props.data}</p>
+        <h1>About page</h1>
+        <p>Async Text:  {data.text}</p>
       </div>
     );
   }

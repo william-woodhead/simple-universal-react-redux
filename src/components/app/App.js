@@ -13,6 +13,7 @@ export default class App extends Component {
           <Link className={styles.Link} to="/about">About</Link>
         </div>
         {this.props.children}
+        <div className={styles.Footer}>William Woodhead - MIT License</div>
       </div>
     );
   }

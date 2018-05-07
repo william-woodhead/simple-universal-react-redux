@@ -11,7 +11,7 @@ import App from '../containers/App';
 export default function handleRender(req, res) {
   const promises = [];
 
-  // Create a new Redux store instance
+  // Create a new Redux store instance for every request
   const store = createReduxStore({ server: true });
 
   let matchedRoute;
@@ -27,6 +27,7 @@ export default function handleRender(req, res) {
 
   // once all the promises from the routes have been resolved, continue with rendering
   Promise.all(promises).then(() => {
+    // here is where we actually render the html, once we have the required asnyc data
     const html = renderToString(
       <Provider store={store}>
         <StaticRouter location={req.url} context={{}}>
@@ -35,9 +36,10 @@ export default function handleRender(req, res) {
       </Provider>
     );
 
+    // get the preloaded state from the redux store
     const preloadedState = store.getState();
 
-    // send a code based on whether the route matched
+    // send a code based on whether the route matched or was not found
     res
       .status(matchedRoute.isExact ? 200 : 404)
       .send(renderFullPage(html, preloadedState));

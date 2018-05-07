@@ -1,5 +1,5 @@
 .App {
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 .TopBar {
@@ -12,4 +12,8 @@
   & + & {
     margin-left: 8px;
   }
+}
+
+.Footer {
+  color: #AAAAAA;
 }
