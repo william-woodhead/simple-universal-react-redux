@@ -32,20 +32,28 @@ It borrows heavily from the fantastic documentation of [Redux](https://redux.js.
 
 ## Commands
 ###### Install
-```npm install```
+```
+npm install
+```
 
 ###### Develop
 
-```npm run dev```
+```
+npm run dev
+```
 Open [localhost:3000](http://localhost:3000)
 
 ###### Build for production
 
-```npm run build```
+```
+npm run build
+```
 
 ###### Run in production
 
-```npm run start```
+```
+npm run start
+```
 Open [localhost:3000](http://localhost:3000)
 
 ## Platform
@@ -54,16 +62,11 @@ This repo is developed and tested on Mac OS.
 
 #### Windows
 
-this repo is tested on Windows. You might have to install nodemon globally though.
+This repo is tested on Windows. You might have to install nodemon globally though.
 
-```npm i -g nodemon```
-
-## Contributing
-Any issues, reports, feedback or bugs or pull requests are more than welcome.
-
-However it is worth mentioning that the purpose of this repo is to create the **simplest**, **most up-to-date**, **most robust** universal async react redux boilerplate.
-
-Therefore any pull request should aim to simplify, fix or update the current solution, not add new packages or complexity.
+```
+npm i -g nodemon
+```
 
 ## Documentation
 
@@ -72,8 +75,11 @@ Therefore any pull request should aim to simplify, fix or update the current sol
 Everything starts with the Express App.
 You can find this in `src/server/index.js`
 
-Here we can see that all requests are routed to the handleRender function:
-`app.use(handleRender);`
+Here we can see that all requests are routed to the `handleRender` function:
+
+```
+app.use(handleRender);
+```
 
 **The handleRender function does a number of things:**
 1. Create a new redux store on every request from the client
@@ -90,6 +96,24 @@ For the client side the index file is `src/client/index.js`
 In this file, we use the redux preloadedState provided by the server to initialise a client side redux store.
 
 We then use the React `hydrate` function to initialise React on the client side.
+
+In the React components, any asynchronous data is fetched in `componentDidMount`. If data already exists, the component will not make the fetch.
+
+```
+componentDidMount() {
+  // only fetch the data if there is no data
+  if (!this.props.data) this.props.getData();
+}
+```
+
+In this way, components won't make requests for data if the data has already been requested server side.
+
+## Contributing
+Any issues, reports, feedback or bugs or pull requests are more than welcome.
+
+However it is worth mentioning that the purpose of this repo is to create the **simplest**, **most up-to-date**, **most robust** universal async react redux boilerplate.
+
+Therefore any pull request should aim to simplify, fix or update the current solution, not add new packages or complexity.
 
 
 ## License
