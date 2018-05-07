@@ -58,7 +58,7 @@ Open [localhost:3000](http://localhost:3000)
 
 ## Platform
 
-This repo is developed and tested on Mac OS.
+This repo is developed and tested on Mac OS with **node v9.5.0** and **npm v6.0.0**
 
 #### Windows
 

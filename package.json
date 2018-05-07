@@ -13,7 +13,24 @@
     "start": "cross-env NODE_ENV=production node ./dist/server/index.js"
   },
   "author": "William Woodhead",
-  "license": "ISC",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/william-woodhead/simple-universal-react-redux"
+  },
+  "homepage": "https://github.com/william-woodhead/simple-universal-react-redux",
+  "keywords": [
+    "react",
+    "isomorphic",
+    "universal",
+    "webpack",
+    "express",
+    "redux",
+    "boilerplate",
+    "babel",
+    "express",
+    "react-router"
+  ],
   "dependencies": {
     "express": "^4.16.3",
     "lodash": "^4.17.10",
