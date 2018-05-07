@@ -145,4 +145,8 @@ MIT License
 
 Copyright (c) 2018 William Woodhead
 
+## Have a play around
+
+Good luck with it!
+Please star or follow on twitter:
 [@williamwoodhead](https://twitter.com/williamwoodhead)
