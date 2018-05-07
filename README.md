@@ -32,26 +32,26 @@ It borrows heavily from the fantastic documentation of [Redux](https://redux.js.
 
 ## Commands
 ###### Install
-```
+```bash
 npm install
 ```
 
 ###### Develop
 
-```
+```bash
 npm run dev
 ```
 Open [localhost:3000](http://localhost:3000)
 
 ###### Build for production
 
-```
+```bash
 npm run build
 ```
 
 ###### Run in production
 
-```
+```bash
 npm run start
 ```
 Open [localhost:3000](http://localhost:3000)
@@ -64,7 +64,7 @@ This repo is developed and tested on Mac OS.
 
 This repo is tested on Windows. You might have to install nodemon globally though.
 
-```
+```bash
 npm i -g nodemon
 ```
 
@@ -77,7 +77,7 @@ You can find this in `src/server/index.js`
 
 Here we can see that all requests are routed to the `handleRender` function:
 
-```
+```javascript
 app.use(handleRender);
 ```
 
@@ -93,13 +93,13 @@ app.use(handleRender);
 
 For the client side the index file is `src/client/index.js`
 
-In this file, we use the redux preloadedState provided by the server to initialise a client side redux store.
+In this file, we use the redux `preloadedState` provided by the server to initialise a client side redux store.
 
 We then use the React `hydrate` function to initialise React on the client side.
 
 In the React components, any asynchronous data is fetched in `componentDidMount`. If data already exists, the component will not make the fetch.
 
-```
+```javascript
 componentDidMount() {
   // only fetch the data if there is no data
   if (!this.props.data) this.props.getData();
@@ -108,6 +108,30 @@ componentDidMount() {
 
 In this way, components won't make requests for data if the data has already been requested server side.
 
+#### React Router
+
+The difference in the react tree between server side and client side is as follows:
+
+**Server** `src/server/handleRender.js`
+```jsx
+<Provider store={store}>
+  <StaticRouter location={req.url} context={{}}>
+    <Router />
+  </StaticRouter>
+</Provider>
+```
+
+**Client** `src/client/index.js`
+```jsx
+<Provider store={store}>
+  <BrowserRouter>
+    <Router />
+  </BrowserRouter>
+</Provider>
+```
+
+Everything else in the entire React tree is the same between server and client.
+
 ## Contributing
 Any issues, reports, feedback or bugs or pull requests are more than welcome.
 
@@ -115,10 +139,10 @@ However it is worth mentioning that the purpose of this repo is to create the **
 
 Therefore any pull request should aim to simplify, fix or update the current solution, not add new packages or complexity.
 
-
 ## License
 
 MIT License
 
 Copyright (c) 2018 William Woodhead
-@william-woodhead
+
+[@williamwoodhead](https://twitter.com/williamwoodhead)
