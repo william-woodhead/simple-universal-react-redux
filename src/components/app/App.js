@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
@@ -18,5 +19,5 @@ export default class App extends Component {
 }
 
 App.propTypes = {
-  children: PropTypes.any.isRequired
+  children: PropTypes.node.isRequired
 };

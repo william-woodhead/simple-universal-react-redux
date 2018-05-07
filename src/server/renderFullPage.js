@@ -1,3 +1,4 @@
+// https://redux.js.org/recipes/server-rendering#inject-initial-component-html-and-state
 export default function renderFullPage(html, preloadedState) {
   return `
     <!doctype html>

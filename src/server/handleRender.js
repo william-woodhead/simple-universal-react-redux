@@ -10,17 +10,22 @@ import App from '../containers/App';
 
 export default function handleRender(req, res) {
   const promises = [];
+
+  // Create a new Redux store instance
   const store = createReduxStore({ server: true });
 
   let matchedRoute;
 
+  // use `some` to imitate `<Switch>` behavior of selecting only the first to match
   routes.some((route) => {
+    // use `matchPath` here
     const match = matchPath(req.path, route);
     if (match) matchedRoute = match;
     if (match && route.loadData) promises.push(store.dispatch(route.loadData()));
     return match;
   });
 
+  // once all the promises from the routes have been resolved, continue with rendering
   Promise.all(promises).then(() => {
     const html = renderToString(
       <Provider store={store}>
@@ -32,6 +37,9 @@ export default function handleRender(req, res) {
 
     const preloadedState = store.getState();
 
-    res.status(matchedRoute.isExact ? 200 : 404).send(renderFullPage(html, preloadedState));
+    // send a code based on whether the route matched
+    res
+      .status(matchedRoute.isExact ? 200 : 404)
+      .send(renderFullPage(html, preloadedState));
   });
 }

@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import NotFound from '../components/not-found';
 
 const mapStateToProps = (state, ownProps) => {
-  return {
-  };
+  return {};
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {

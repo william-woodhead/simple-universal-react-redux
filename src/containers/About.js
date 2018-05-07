@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return bindActionCreators({
-    getAboutData
+    getData: getAboutData
   }, dispatch);
 }
 
