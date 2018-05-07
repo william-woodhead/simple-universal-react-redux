@@ -2,7 +2,7 @@
   "name": "simple-universal-react-redux",
   "version": "1.0.0",
   "description": "The simplest Async Universal React & Redux boilerplate I could possibly make.",
-  "main": "index.js",
+  "main": "src/server/index.js",
   "scripts": {
     "dev-server": "cross-env BABEL_ENV=server NODE_ENV=development nodemon ./src/server/index.js --exec babel-node --ignore dist/",
     "dev-client": "cross-env NODE_ENV=development webpack --config ./webpack.config.dev.js",
