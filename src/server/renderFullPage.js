@@ -17,5 +17,5 @@ export default function renderFullPage(html, preloadedState) {
         <script src="/dist/main.bundle.js"></script>
       </body>
     </html>
-    `
+    `;
 }

@@ -6,8 +6,8 @@
         [
           "css-modules-transform", {
             "preprocessCss": "./loaders/sass-loader.js",
-            "generateScopedName": "[name]__[local]___[hash:base64:5]",
-            "extensions": [".scss"]
+            "generateScopedName": "./loaders/scope-name.js",
+            "extensions": [".scss", ".css"]
           }
         ]
       ]

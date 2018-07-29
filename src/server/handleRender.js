@@ -6,7 +6,6 @@ import { Provider } from 'react-redux';
 import Router, { routes } from '../universal/routes';
 import renderFullPage from './renderFullPage';
 import createReduxStore from '../universal/createReduxStore';
-import App from '../containers/App';
 
 export default function handleRender(req, res) {
   const promises = [];
@@ -15,33 +14,29 @@ export default function handleRender(req, res) {
   const store = createReduxStore({ server: true });
 
   let matchedRoute;
-
   // use `some` to imitate `<Switch>` behavior of selecting only the first to match
   routes.some((route) => {
-    // use `matchPath` here
-    const match = matchPath(req.path, route);
-    if (match) matchedRoute = match;
-    if (match && route.loadData) promises.push(store.dispatch(route.loadData()));
-    return match;
+    matchedRoute = matchPath(req.path, route);
+    if (matchedRoute && route.loadData) promises.push(store.dispatch(route.loadData()));
+    return matchedRoute;
   });
 
   // once all the promises from the routes have been resolved, continue with rendering
-  Promise.all(promises).then(() => {
+  return Promise.all(promises).then(() => {
     // here is where we actually render the html, once we have the required asnyc data
-    const html = renderToString(
+    const html = renderToString( // eslint-disable-line
       <Provider store={store}>
         <StaticRouter location={req.url} context={{}}>
           <Router />
         </StaticRouter>
-      </Provider>
-    );
+      </Provider>);
 
     // get the preloaded state from the redux store
     const preloadedState = store.getState();
 
     // send a code based on whether the route matched or was not found
-    res
-      .status(matchedRoute.isExact ? 200 : 404)
+    return res
+      .status(matchedRoute && matchedRoute.isExact ? 200 : 404)
       .send(renderFullPage(html, preloadedState));
   });
 }

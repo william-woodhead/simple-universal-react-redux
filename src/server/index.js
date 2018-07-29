@@ -1,4 +1,3 @@
-import path from 'path';
 import Express from 'express';
 import handleRender from './handleRender';
 

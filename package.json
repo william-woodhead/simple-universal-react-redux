@@ -34,6 +34,7 @@
   ],
   "dependencies": {
     "express": "^4.16.3",
+    "loader-utils": "^1.1.0",
     "lodash": "^4.17.10",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
@@ -52,7 +53,6 @@
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "concurrently": "^3.5.1",
     "cross-env": "^5.1.4",
