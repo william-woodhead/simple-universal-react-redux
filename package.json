@@ -1,6 +1,6 @@
 {
   "name": "simple-universal-react-redux",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "description": "The simplest Async Universal React & Redux boilerplate I could possibly make.",
   "main": "src/server/index.js",
   "scripts": {
