@@ -5,7 +5,7 @@
   "main": "src/server/index.js",
   "scripts": {
     "clean": "rimraf dist",
-    "dev-server": "cross-env BABEL_ENV=server NODE_ENV=development nodemon ./src/server/index.js --exec babel-node --ignore dist/",
+    "dev-server": "cross-env BABEL_ENV=server NODE_ENV=development nodemon ./src/server/index.js --exec babel-node --ignore dist/ -e js,scss,css",
     "dev-client": "cross-env NODE_ENV=development webpack --config ./webpack.config.dev.js",
     "dev": "concurrently \"cross-env NODE_ENV=development npm run dev-server\" \"cross-env NODE_ENV=development npm run dev-client\"",
     "prod-server": "cross-env BABEL_ENV=server NODE_ENV=production babel src --out-dir ./dist",
