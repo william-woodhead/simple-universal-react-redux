@@ -1,5 +1,5 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'production',
@@ -17,30 +17,42 @@ module.exports = {
       use: 'babel-loader'
     }, {
       test: /\.css$/,
-      use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: ['css-loader']
-      })
+      use: [{
+        loader: MiniCssExtractPlugin.loader
+      }, {
+        loader: 'css-loader',
+        options: {
+          sourceMap: true,
+          modules: true,
+          localIdentName: '[name]__[local]___[hash:base64:5]'
+        }
+      }]
     }, {
       test: /\.scss$/,
-      use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: [
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              importLoaders: 1,
-              localIdentName: '[name]__[local]___[hash:base64:5]'
-            },
-          },
-          'sass-loader'
-        ]
-      })
+      use: [{
+        loader: MiniCssExtractPlugin.loader
+      }, {
+        loader: 'css-loader',
+        options: {
+          sourceMap: true,
+          modules: true,
+          localIdentName: '[name]__[local]___[hash:base64:5]'
+        }
+      },
+      'sass-loader'
+      ]
     }
     ]
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+    runtimeChunk: true,
+  },
   plugins: [
-    new ExtractTextPlugin({ filename: '[name].style.css', allChunks: true }),
+    new MiniCssExtractPlugin({
+      filename: '[name].style.css'
+    })
   ]
 };

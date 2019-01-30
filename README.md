@@ -1,9 +1,11 @@
 # Simple Universal React Redux
+
 ### The simplest possible Async Universal React & Redux boilerplate.
 
 This repo is an attempt to make the simplest server-side rendered (universal) async React Redux app.
 
 Boilerplates can be a great for two things:
+
 1. Get started with your application code quickly since you don't have to scaffold your app.
 1. Learn how apps can be scaffolded, and learn how technologies can fit together.
 
@@ -13,17 +15,20 @@ It was born out of frustrations with complex boilerplates where you can't unders
 
 It tries to be as un-opinionated and simple as possible.
 
-It borrows heavily from the fantastic documentation of [Redux](https://redux.js.org/) and [React-Router](https://reacttraining.com/react-router/web).
+It borrows heavily from the documentation of [Redux](https://redux.js.org/) and [React-Router](https://reacttraining.com/react-router/web).
 
 ### These are the technologies it uses:
 
 #### For the app
+
 - [React](https://reactjs.org/)
 - [Redux](https://redux.js.org/)
 - [React-router](https://reacttraining.com/react-router/web)
 - [Express](http://expressjs.com/)
+- [Yarn](https://yarnpkg.com/lang/en/)
 
 #### Build tools
+
 - [Babel for ES6 Javascript](https://babeljs.io/)
 - [Webpack 4](https://webpack.js.org/)
 - [Sass](http://sass-lang.com/)
@@ -31,34 +36,38 @@ It borrows heavily from the fantastic documentation of [Redux](https://redux.js.
 - [ESlint](https://eslint.org/)
 
 ## Commands
+
 ###### Install
+
 ```bash
-npm install
+yarn install
 ```
 
 ###### Develop
 
 ```bash
-npm run dev
+yarn run dev
 ```
+
 Open [localhost:3000](http://localhost:3000)
 
 ###### Build for production
 
 ```bash
-npm run build
+yarn run build
 ```
 
 ###### Run in production
 
 ```bash
-npm run start
+yarn run start
 ```
+
 Open [localhost:3000](http://localhost:3000)
 
 ## Platform
 
-This repo is developed and tested on Mac OS with **node v9.5.0** and **npm v6.0.0**
+This repo is developed and tested on Mac OS with **node v10.10.0** and **npm v6.7.0**
 
 #### Windows
 
@@ -82,6 +91,7 @@ app.use(handleRender);
 ```
 
 **The handleRender function does a number of things:**
+
 1. Create a new redux store on every request from the client
 1. Match the request path (`req.path`) to the react router routes specified in `src/universal/routes`
 1. Asynchronously fetch the data required to render this route (using the route's `loadData` function)
@@ -113,6 +123,7 @@ In this way, components won't make requests for data if the data has already bee
 The difference in the react tree between server side and client side is as follows:
 
 **Server** `src/server/handleRender.js`
+
 ```jsx
 <Provider store={store}>
   <StaticRouter location={req.url} context={{}}>
@@ -122,6 +133,7 @@ The difference in the react tree between server side and client side is as follo
 ```
 
 **Client** `src/client/index.js`
+
 ```jsx
 <Provider store={store}>
   <BrowserRouter>
@@ -133,6 +145,7 @@ The difference in the react tree between server side and client side is as follo
 Everything else in the entire React tree is the same between server and client.
 
 ## Contributing
+
 Any issues, reports, feedback or bugs or pull requests are more than welcome.
 
 However it is worth mentioning that the purpose of this repo is to create the **simplest**, **most up-to-date**, **most robust** universal async react redux boilerplate.
@@ -143,7 +156,7 @@ Therefore any pull request should aim to simplify, fix or update the current sol
 
 MIT License
 
-Copyright (c) 2018 William Woodhead
+Copyright (c) 2019 William Woodhead
 
 ## Have a play around
 
