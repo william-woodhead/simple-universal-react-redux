@@ -1,10 +1,11 @@
 {
-  "presets": ["env", "react"],
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
   "env": {
     "server": {
       "plugins": [
         [
-          "css-modules-transform", {
+          "css-modules-transform",
+          {
             "preprocessCss": "./loaders/sass-loader.js",
             "generateScopedName": "./loaders/scope-name.js",
             "extensions": [".scss", ".css"]
